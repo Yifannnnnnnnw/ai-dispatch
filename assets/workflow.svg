@@ -1,0 +1,63 @@
+<svg width="860" height="220" viewBox="0 0 860 220" xmlns="http://www.w3.org/2000/svg" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif">
+  <defs>
+    <marker id="arrow" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto">
+      <path d="M0,0 L0,6 L8,3 z" fill="#6366f1"/>
+    </marker>
+  </defs>
+
+  <!-- Background -->
+  <rect width="860" height="220" rx="16" fill="#0f0f1a"/>
+
+  <!-- Step 1: RSS Sources -->
+  <rect x="24" y="50" width="148" height="120" rx="12" fill="#1a1a2e" stroke="#2d2d4e" stroke-width="1.5"/>
+  <text x="98" y="80" text-anchor="middle" fill="#a5b4fc" font-size="11" font-weight="600" letter-spacing="0.05em">NEWS SOURCES</text>
+  <text x="98" y="102" text-anchor="middle" fill="#6b7280" font-size="10">OpenAI · DeepMind</text>
+  <text x="98" y="118" text-anchor="middle" fill="#6b7280" font-size="10">arXiv · HuggingFace</text>
+  <text x="98" y="134" text-anchor="middle" fill="#6b7280" font-size="10">TechCrunch · Verge</text>
+  <text x="98" y="150" text-anchor="middle" fill="#6b7280" font-size="10">+ 8 Research Blogs</text>
+
+  <!-- Arrow 1 -->
+  <line x1="172" y1="110" x2="210" y2="110" stroke="#6366f1" stroke-width="2" marker-end="url(#arrow)"/>
+
+  <!-- Step 2: GitHub Actions -->
+  <rect x="214" y="50" width="148" height="120" rx="12" fill="#1a1a2e" stroke="#2d2d4e" stroke-width="1.5"/>
+  <text x="288" y="80" text-anchor="middle" fill="#a5b4fc" font-size="11" font-weight="600" letter-spacing="0.05em">GITHUB ACTIONS</text>
+  <text x="288" y="104" text-anchor="middle" fill="#6b7280" font-size="10">Triggers at 06:00 UTC</text>
+  <text x="288" y="122" text-anchor="middle" fill="#6b7280" font-size="10">Fetches RSS feeds</text>
+  <text x="288" y="140" text-anchor="middle" fill="#6b7280" font-size="10">Free · No server</text>
+  <text x="288" y="158" text-anchor="middle" fill="#4ade80" font-size="10" font-weight="500">100% Free</text>
+
+  <!-- Arrow 2 -->
+  <line x1="362" y1="110" x2="400" y2="110" stroke="#6366f1" stroke-width="2" marker-end="url(#arrow)"/>
+
+  <!-- Step 3: Claude -->
+  <rect x="404" y="50" width="148" height="120" rx="12" fill="#1a1a2e" stroke="#2d2d4e" stroke-width="1.5"/>
+  <text x="478" y="80" text-anchor="middle" fill="#a5b4fc" font-size="11" font-weight="600" letter-spacing="0.05em">CLAUDE API</text>
+  <text x="478" y="104" text-anchor="middle" fill="#6b7280" font-size="10">Reads all articles</text>
+  <text x="478" y="122" text-anchor="middle" fill="#6b7280" font-size="10">Generates 5 sections</text>
+  <text x="478" y="140" text-anchor="middle" fill="#6b7280" font-size="10">Trend analysis</text>
+  <text x="478" y="158" text-anchor="middle" fill="#fbbf24" font-size="10" font-weight="500">~$0.05 / day</text>
+
+  <!-- Arrow 3 -->
+  <line x1="552" y1="110" x2="590" y2="110" stroke="#6366f1" stroke-width="2" marker-end="url(#arrow)"/>
+
+  <!-- Step 4: Gmail -->
+  <rect x="594" y="50" width="148" height="120" rx="12" fill="#1a1a2e" stroke="#2d2d4e" stroke-width="1.5"/>
+  <text x="668" y="80" text-anchor="middle" fill="#a5b4fc" font-size="11" font-weight="600" letter-spacing="0.05em">GMAIL SMTP</text>
+  <text x="668" y="104" text-anchor="middle" fill="#6b7280" font-size="10">Styled HTML email</text>
+  <text x="668" y="122" text-anchor="middle" fill="#6b7280" font-size="10">Delivered to inbox</text>
+  <text x="668" y="140" text-anchor="middle" fill="#6b7280" font-size="10">Any recipient</text>
+  <text x="668" y="158" text-anchor="middle" fill="#4ade80" font-size="10" font-weight="500">Free</text>
+
+  <!-- Arrow 4 -->
+  <line x1="742" y1="110" x2="780" y2="110" stroke="#6366f1" stroke-width="2" marker-end="url(#arrow)"/>
+
+  <!-- Step 5: Inbox -->
+  <rect x="784" y="50" width="52" height="120" rx="12" fill="#4f46e5" stroke="#6366f1" stroke-width="1.5"/>
+  <text x="810" y="95" text-anchor="middle" fill="#fff" font-size="22">📬</text>
+  <text x="810" y="122" text-anchor="middle" fill="#c7d2fe" font-size="9" font-weight="600">YOUR</text>
+  <text x="810" y="136" text-anchor="middle" fill="#c7d2fe" font-size="9" font-weight="600">INBOX</text>
+
+  <!-- Title -->
+  <text x="430" y="202" text-anchor="middle" fill="#4b5563" font-size="11">📡 AI Dispatch · github.com/Yifannnnnnnnw/ai-dispatch</text>
+</svg>

@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html><head><meta charset="utf-8">
+<style>
+body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+       background: #f0f0f5; margin: 0; padding: 20px; color: #222; }
+.wrapper { max-width: 700px; margin: auto; background: #fff;
+           border-radius: 10px; overflow: hidden;
+           box-shadow: 0 2px 12px rgba(0,0,0,.10); }
+.header { background: #0f0f1a; color: #fff; padding: 28px 36px; }
+.header h1 { margin: 0; font-size: 22px; letter-spacing: -.3px; }
+.body { padding: 28px 36px; }
+h2 { color: #0f0f1a; margin-top: 0; font-size: 20px; }
+.intro { color: #666; font-size: 13px; margin-bottom: 28px; }
+.section-title { font-weight: 700; font-size: 11px; text-transform: uppercase;
+                 letter-spacing: .1em; color: #999; margin: 32px 0 14px;
+                 padding-bottom: 6px; border-bottom: 1px solid #eee; }
+.item { border-left: 3px solid #4f46e5; padding: 14px 18px;
+        margin-bottom: 18px; background: #fafafa; border-radius: 0 8px 8px 0; }
+.item h3 { margin: 0 0 4px; font-size: 15px; line-height: 1.4; }
+.item h3 a { color: #1a1a2e; text-decoration: none; }
+.meta { font-size: 11px; color: #aaa; display: block; margin-bottom: 8px; }
+.item p { margin: 6px 0 0; font-size: 14px; line-height: 1.7; color: #444; }
+.item p.tag { font-size: 12px; color: #7c6fcd; margin-top: 8px; }
+.trend { border-left: 3px solid #059669; padding: 14px 18px;
+         margin-bottom: 18px; background: #f0fdf4; border-radius: 0 8px 8px 0; }
+.trend h3 { margin: 0 0 8px; font-size: 15px; color: #065f46; }
+.trend p { margin: 0; font-size: 14px; line-height: 1.7; color: #444; }
+.deep-read { border-left: 3px solid #d97706; padding: 14px 18px;
+             margin-bottom: 18px; background: #fffbeb; border-radius: 0 8px 8px 0; }
+.deep-read h3 { margin: 0 0 8px; font-size: 15px; }
+.deep-read h3 a { color: #92400e; text-decoration: none; }
+.deep-read p { margin: 0; font-size: 14px; line-height: 1.7; color: #444; }
+.blog-pick { border-left: 3px solid #db2777; padding: 14px 18px;
+             margin-bottom: 18px; background: #fdf2f8; border-radius: 0 8px 8px 0; }
+.blog-pick h3 { margin: 0 0 4px; font-size: 15px; }
+.blog-pick h3 a { color: #831843; text-decoration: none; }
+.blog-why { margin: 10px 0 8px; font-size: 14px; line-height: 1.7; color: #444; }
+.blog-pick ul { margin: 8px 0; padding-left: 20px; font-size: 14px;
+                line-height: 1.8; color: #444; }
+.blog-audience { font-size: 12px; color: #9d174d; margin: 8px 0 0; }
+.closing { background: #1a1a2e; color: #e0e0ff; border-radius: 8px;
+           padding: 16px 20px; margin-top: 28px; font-size: 14px; line-height: 1.6; }
+.closing strong { color: #fff; }
+.footer { padding: 16px 36px; font-size: 12px; color: #bbb;
+          border-top: 1px solid #eee; text-align: center; }
+</style>
+</head>
+<body>
+<div class="wrapper">
+  <div class="header"><h1>📡 AI Dispatch</h1></div>
+  <div class="body">
+
+<h2>📡 AI Dispatch · May 30, 2025</h2>
+<p class="intro">42 articles · 18 blog candidates · Covering robotics · AI agents · large language models</p>
+
+<div class="section-title">📌 Top Stories</div>
+
+<div class="item">
+  <h3><a href="#">Google DeepMind Launches Gemini Robotics On-Device for Edge Inference</a></h3>
+  <span class="meta">Source: Google DeepMind · 2025-05-30 08:12 UTC</span>
+  <p><strong>What happened:</strong> DeepMind released an on-device variant of Gemini designed specifically for robotic edge hardware, enabling manipulation tasks without cloud inference.</p>
+  <p><strong>Why it matters:</strong> On-device inference solves the three core blockers for real-world robot deployment: latency, privacy, and connectivity. This signals Google is taking a fundamentally different commercialization path than OpenAI — closing the hardware loop first rather than expanding the API ecosystem. Expect other robot OEMs to fast-follow with similar on-device integrations within months.</p>
+  <p class="tag">Connected: Aligns with Figure AI's Helix update this week — "intelligence at the edge" is becoming the consensus architecture.</p>
+</div>
+
+<div class="item">
+  <h3><a href="#">Anthropic Opens Extended Thinking to All API Users</a></h3>
+  <span class="meta">Source: Anthropic Blog · 2025-05-30 06:00 UTC</span>
+  <p><strong>What happened:</strong> Claude's Extended Thinking mode (chain-of-thought reasoning) is now available to all API developers, billed separately per thinking token.</p>
+  <p><strong>Why it matters:</strong> This is Anthropic's direct response to OpenAI's o3 series. Charging separately for thinking tokens is a bet that developers will pay for visible, auditable reasoning — a hypothesis that will be tested over the next few months. For agent builders, controllable reasoning depth is critical for reliable tool-calling pipelines.</p>
+  <p class="tag">Connected: OpenAI also cut o3-mini API pricing last week — the reasoning model price war has officially begun.</p>
+</div>
+
+<div class="item">
+  <h3><a href="#">Figure AI Closes $675M Series B at $39.5B Valuation</a></h3>
+  <span class="meta">Source: TechCrunch · 2025-05-29 22:41 UTC</span>
+  <p><strong>What happened:</strong> Figure AI raised a new round led by Microsoft and OpenAI, focusing on industrial humanoid robots.</p>
+  <p><strong>Why it matters:</strong> The $39.5B valuation already exceeds most legacy industrial robotics companies. More importantly, Microsoft's participation likely means deep Azure and Copilot integration — an enterprise distribution play rather than consumer. Humanoid robot capital density is now approaching semiconductor/aerospace levels.</p>
+  <p class="tag">Connected: Alongside 1X Technologies and Physical Intelligence, 2025 is shaping up as the highest-velocity fundraising year in embodied AI history.</p>
+</div>
+
+<div class="section-title">📈 Trend Analysis</div>
+
+<div class="trend">
+  <h3>Trend 1: Reasoning Depth Is Becoming the Primary Competitive Axis</h3>
+  <p>Anthropic, OpenAI, and Google all made reasoning-related moves this week. Chain-of-thought, extended thinking, and o3 pricing cuts point to the same conclusion: in H2 2025, model differentiation will be primarily about reasoning depth and controllability, not parameter count. For developers, model selection will shift from "which model is smarter" to "which model's reasoning process is more auditable and predictable."</p>
+</div>
+
+<div class="trend">
+  <h3>Trend 2: Embodied AI Deployment Is Forking — Cloud vs. Edge</h3>
+  <p>DeepMind chose edge, OpenAI chose cloud API openness. These paths have fundamentally different business models: edge means hardware lock-in and higher integration barriers but better latency and privacy; cloud means faster iteration and broader ecosystem but network dependency. Expect clear market validation signals by 2026.</p>
+</div>
+
+<div class="section-title">🔬 Papers Worth Reading</div>
+
+<div class="deep-read">
+  <h3><a href="#">Scaling LLM Test-Time Compute Optimally Can be More Effective than Scaling Model Parameters</a></h3>
+  <p><strong>Core contribution:</strong> Empirical study showing that dynamically allocating compute at inference time (rather than training larger models) can significantly improve performance with greater efficiency on specific task types.<br><strong>What to focus on:</strong> Section 4's compute budget allocation strategy and the comparison with RL training. Essential context for understanding the design decisions behind o3 and extended thinking. ~45 min read.</p>
+</div>
+
+<div class="deep-read">
+  <h3><a href="#">π₀.₅: a Vision-Language-Action Model with Open-World Generalization</a></h3>
+  <p><strong>Core contribution:</strong> Physical Intelligence's next-gen VLA model demonstrating zero-shot generalization to unseen environments.<br><strong>What to focus on:</strong> Training data composition, action chunking implementation, and benchmarks against RT-2. Essential reading for embodied AI researchers. ~60 min read.</p>
+</div>
+
+<div class="section-title">📖 Today's Blog Pick</div>
+
+<div class="blog-pick">
+  <h3><a href="#">The Bitter Lesson — Rich Sutton</a></h3>
+  <span class="meta">Essay · Rich Sutton · 2019 · incompleteideas.net</span>
+  <p class="blog-why">Re-reading this 2019 essay hits differently this week. Sutton's central argument — that scale and compute beat human-engineered priors in the long run — is the intellectual foundation for everything happening in reasoning compute right now. If you're wondering why everyone is racing to add more test-time compute, this is the best historical grounding.</p>
+  <ul>
+    <li>Researchers consistently try to hard-code domain knowledge into systems — and consistently lose to brute computation over time</li>
+    <li>The only methods that scale reliably are those that improve as compute increases: search and learning</li>
+    <li>This is not a dismissal of human insight — it's a clear-eyed view of what makes a general method</li>
+  </ul>
+  <p class="blog-audience">Suitable for: anyone building or researching AI · Reading time: ~5 min</p>
+</div>
+
+<div class="closing">
+  <strong>Today's Signal:</strong> The compute arms race has shifted from training to inference. Frameworks that efficiently allocate test-time compute will become the next infrastructure layer.
+</div>
+
+  </div>
+  <div class="footer">AI Dispatch · Powered by Claude + GitHub Actions · Delivered daily at 07:00 BST</div>
+</div>
+</body></html>

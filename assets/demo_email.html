@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html><head><meta charset="utf-8">
+<style>
+body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+       background: #f0f0f5; margin: 0; padding: 20px; color: #222; }
+.wrapper { max-width: 700px; margin: auto; background: #fff;
+           border-radius: 10px; overflow: hidden;
+           box-shadow: 0 2px 12px rgba(0,0,0,.10); }
+.header { background: #0f0f1a; color: #fff; padding: 28px 36px; }
+.header h1 { margin: 0; font-size: 22px; letter-spacing: -.3px; }
+.body { padding: 28px 36px; }
+h2 { color: #0f0f1a; margin-top: 0; font-size: 20px; }
+.intro { color: #666; font-size: 13px; margin-bottom: 28px; }
+.section-title { font-weight: 700; font-size: 11px; text-transform: uppercase;
+                 letter-spacing: .1em; color: #999; margin: 32px 0 14px;
+                 padding-bottom: 6px; border-bottom: 1px solid #eee; }
+.item { border-left: 3px solid #4f46e5; padding: 14px 18px;
+        margin-bottom: 18px; background: #fafafa; border-radius: 0 8px 8px 0; }
+.item h3 { margin: 0 0 4px; font-size: 15px; line-height: 1.4; }
+.item h3 a { color: #1a1a2e; text-decoration: none; }
+.meta { font-size: 11px; color: #aaa; display: block; margin-bottom: 8px; }
+.item p { margin: 6px 0 0; font-size: 14px; line-height: 1.7; color: #444; }
+.item p.tag { font-size: 12px; color: #7c6fcd; margin-top: 8px; }
+.trend { border-left: 3px solid #059669; padding: 14px 18px;
+         margin-bottom: 18px; background: #f0fdf4; border-radius: 0 8px 8px 0; }
+.trend h3 { margin: 0 0 8px; font-size: 15px; color: #065f46; }
+.trend p { margin: 0; font-size: 14px; line-height: 1.7; color: #444; }
+.deep-read { border-left: 3px solid #d97706; padding: 14px 18px;
+             margin-bottom: 18px; background: #fffbeb; border-radius: 0 8px 8px 0; }
+.deep-read h3 { margin: 0 0 8px; font-size: 15px; }
+.deep-read h3 a { color: #92400e; text-decoration: none; }
+.deep-read p { margin: 0; font-size: 14px; line-height: 1.7; color: #444; }
+.blog-pick { border-left: 3px solid #db2777; padding: 14px 18px;
+             margin-bottom: 18px; background: #fdf2f8; border-radius: 0 8px 8px 0; }
+.blog-pick h3 { margin: 0 0 4px; font-size: 15px; }
+.blog-pick h3 a { color: #831843; text-decoration: none; }
+.blog-why { margin: 10px 0 8px; font-size: 14px; line-height: 1.7; color: #444; }
+.blog-pick ul { margin: 8px 0; padding-left: 20px; font-size: 14px;
+                line-height: 1.8; color: #444; }
+.blog-audience { font-size: 12px; color: #9d174d; margin: 8px 0 0; }
+.closing { background: #1a1a2e; color: #e0e0ff; border-radius: 8px;
+           padding: 16px 20px; margin-top: 28px; font-size: 14px; line-height: 1.6; }
+.closing strong { color: #fff; }
+.footer { padding: 16px 36px; font-size: 12px; color: #bbb;
+          border-top: 1px solid #eee; text-align: center; }
+</style>
+</head>
+<body>
+<div class="wrapper">
+  <div class="header"><h1>📡 AI Dispatch</h1></div>
+  <div class="body">
+
+<h2>📡 AI Dispatch · 2025年05月30日</h2>
+<p class="intro">新闻 42 条 · 博客 18 篇 · 聚焦 robotics · AI agents · large language models</p>
+
+<div class="section-title">📌 重点新闻</div>
+
+<div class="item">
+  <h3><a href="#">Google DeepMind 发布 Gemini Robotics On-Device，实现端侧机器人控制</a></h3>
+  <span class="meta">来源：Google DeepMind · 2025-05-30 08:12 UTC</span>
+  <p><strong>事件：</strong>DeepMind 推出可部署于机器人边缘设备的 Gemini 变体，无需云端推理即可完成操作任务。</p>
+  <p><strong>意义：</strong>端侧推理是通用机器人商业化的关键瓶颈之一——延迟、隐私和网络依赖都因此解决。这表明 Google 在具身智能的落地路径上选择了与 OpenAI 不同的方向：优先打通硬件闭环，而非开放 API 生态。预计未来 6 个月内会看到更多机器人硬件厂商跟进端侧模型集成。</p>
+  <p class="tag">关联：与本周 Figure AI 的 Helix 更新方向一致，强化了"推理下沉到边缘"的行业趋势。</p>
+</div>
+
+<div class="item">
+  <h3><a href="#">Anthropic 开放 Claude 的 Extended Thinking 至所有 API 用户</a></h3>
+  <span class="meta">来源：Anthropic Blog · 2025-05-30 06:00 UTC</span>
+  <p><strong>事件：</strong>Extended Thinking 模式（链式思考）现已向所有 API 开发者开放，按 thinking token 单独计费。</p>
+  <p><strong>意义：</strong>这是 Anthropic 向 OpenAI o3 系列正面竞争的直接动作。开放 thinking token 计费模式意味着他们认为开发者愿意为"可见推理过程"付费，这个假设能否成立将在未来几个月验证。对 agent 开发者而言，可控的推理深度是构建可靠工具调用链的重要能力。</p>
+  <p class="tag">关联：上周 OpenAI 也下调了 o3-mini 的 API 价格，推理模型的价格战已经开始。</p>
+</div>
+
+<div class="item">
+  <h3><a href="#">Figure AI 完成 $675M B 轮，估值达 $39.5B</a></h3>
+  <span class="meta">来源：TechCrunch · 2025-05-29 22:41 UTC</span>
+  <p><strong>事件：</strong>Figure AI 完成新一轮融资，由 Microsoft 和 OpenAI 领投，专注于工业场景人形机器人。</p>
+  <p><strong>意义：</strong>$39.5B 的估值已超过大多数传统工业机器人公司的市值。但真正值得注意的是 Microsoft 的参与——这可能意味着 Figure 的机器人将深度集成 Azure 和 Copilot 生态，走企业销售路线而非消费级。人形机器人赛道的资本密度正在向半导体/航天级别靠拢。</p>
+  <p class="tag">关联：与 1X Technologies、Physical Intelligence 的融资节奏对比，2025 是人形机器人融资密度最高的一年。</p>
+</div>
+
+<div class="section-title">📈 趋势分析</div>
+
+<div class="trend">
+  <h3>趋势一：推理能力正在成为模型竞争的主战场</h3>
+  <p>本周 Anthropic、OpenAI、Google 三家均有与"推理"相关的动作。链式思考、extended thinking、o3 系列的价格战，指向同一个结论：2025 下半年，模型能力的差异化将主要体现在推理深度和可控性上，而非参数规模。对开发者而言，选型逻辑将从"哪个模型更聪明"转向"哪个模型的推理过程更可审计、更可控"。</p>
+</div>
+
+<div class="trend">
+  <h3>趋势二：具身智能的落地路径分叉——云端 vs 端侧</h3>
+  <p>DeepMind 选择端侧，OpenAI 选择云端 API 开放，这两条路在商业模式上截然不同。端侧意味着硬件绑定和更高的集成壁垒，但延迟和隐私更优；云端意味着更快的迭代和更广的生态，但依赖网络连接。预计 2026 年前会看到明显的市场验证结果。</p>
+</div>
+
+<div class="section-title">🔬 值得深挖</div>
+
+<div class="deep-read">
+  <h3><a href="#">Scaling LLM Test-Time Compute Optimally Can be More Effective than Scaling Model Parameters</a></h3>
+  <p><strong>核心贡献：</strong>实证研究表明，在推理阶段动态分配计算资源（而非训练更大的模型）可以显著提升性能，且在特定任务上效率更高。<br><strong>阅读重点：</strong>第 4 节的 compute budget 分配策略，以及与 RL 训练的对比实验。对理解 o3/extended thinking 背后的设计决策很有帮助。约 45 分钟。</p>
+</div>
+
+<div class="deep-read">
+  <h3><a href="#">π₀.₅: a Vision-Language-Action Model with Open-World Generalization</a></h3>
+  <p><strong>核心贡献：</strong>Physical Intelligence 的新一代 VLA 模型，展示了在未见过环境中的零样本泛化能力。<br><strong>阅读重点：</strong>训练数据构成和 action chunking 的实现细节，以及与 RT-2 的对比基准。对做具身 AI 研究的读者尤为关键。约 60 分钟。</p>
+</div>
+
+<div class="section-title">📖 今日推荐博客</div>
+
+<div class="blog-pick">
+  <h3><a href="#">The Bitter Lesson — Rich Sutton</a></h3>
+  <span class="meta">Essay · Rich Sutton · 2019 · incompleteideas.net</span>
+  <p class="blog-why">本周推理模型密集发布的背景下，重读这篇 2019 年的短文格外有共鸣。Sutton 的核心论点——规模和计算力长期来看总是胜过人类精心设计的先验——正是今天 extended thinking 和 test-time compute 研究的思想根基。如果你在想"为什么大家都在卷推理计算"，这篇是最好的历史注脚。</p>
+  <ul>
+    <li>人类研究者倾向于把领域知识硬编码进系统，但这条路长期来看总是被暴力计算击败</li>
+    <li>真正可扩展的方法是那些能随着计算量增加而持续改进的方法（搜索、学习）</li>
+    <li>这不是对人类智慧的否定，而是对"什么是真正通用方法"的清醒认识</li>
+  </ul>
+  <p class="blog-audience">适合：所有做 AI 研究或产品的人 · 阅读时间：约 5 分钟</p>
+</div>
+
+<div class="closing">
+  <strong>今日信号：</strong>推理计算的军备竞赛已经从训练侧转移到推理侧，能高效分配 test-time compute 的框架将成为下一个基础设施层。
+</div>
+
+  </div>
+  <div class="footer">AI Dispatch · Powered by Claude + GitHub Actions · 每日 07:00 BST 自动发送</div>
+</div>
+</body></html>
