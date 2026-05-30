@@ -34,7 +34,7 @@ def fetch_recent_articles(hours: int = 24) -> list[dict]:
     for source, url in RSS_FEEDS.items():
         try:
             feed = feedparser.parse(url, request_headers={"User-Agent": "Mozilla/5.0"})
-            for entry in feed.entries[:30]:
+            for entry in feed.entries[:50]:
                 published = None
                 for attr in ("published_parsed", "updated_parsed"):
                     t = getattr(entry, attr, None)
@@ -57,7 +57,7 @@ def fetch_recent_articles(hours: int = 24) -> list[dict]:
                     "source": source,
                     "title": title,
                     "url": entry.get("link", ""),
-                    "summary": summary[:600] if summary else "",
+                    "summary": summary[:1000] if summary else "",
                     "published": published.strftime("%Y-%m-%d %H:%M UTC") if published else "Unknown",
                 })
         except Exception as e:
@@ -76,39 +76,67 @@ def summarize_with_claude(articles: list[dict]) -> str:
 
     today = datetime.now().strftime("%Y年%m月%d日")
 
-    prompt = f"""你是一位专注 AI 领域的研究员，每天为同行整理最重要的动态。
+    prompt = f"""你是一位 AI 领域的资深研究员，为顶级机构的同行撰写每日深度简报。读者是熟悉该领域的专业人士，不需要解释基础概念，需要的是洞察和判断。
 
-以下是过去 24 小时收集的 AI / Robotics / Agent 相关新闻（共 {len(articles)} 条）：
+以下是过去 24 小时收集的 AI / Robotics / Agent 相关原始资讯（共 {len(articles)} 条）：
 
 {articles_text}
 
-请完成以下任务：
-1. 从中筛选出最值得关注的 6-10 条，优先选择：机器人技术突破、Agent 新能力、大模型重要进展、知名机构发布
-2. 每条用 2-3 句中文写清楚"发生了什么、为什么重要"
-3. 最后加一段 50 字以内的"今日一句话总结"
+请完成以下四个部分，严格使用 HTML 格式输出（不要加 markdown 代码块、不要加 ```html）：
 
-严格使用以下 HTML 格式输出（不要加 markdown 代码块）：
+---
 
-<h2>🤖 AI 日报 · {today}</h2>
-<p class="intro">今日精选 N 条，聚焦 Robotics / Agent / 大模型。</p>
+第一部分：重点新闻（10-15条）
+每条包含：
+- 发生了什么（1句）
+- 技术/商业意义（2-3句，要有判断和立场，不要复述原文）
+- 与其他新闻或已有趋势的关联（如有）
 
-<div class="section-title">📌 重点关注</div>
+第二部分：趋势分析
+基于今日所有资讯，识别 2-3 个值得关注的技术或行业趋势。每个趋势需要有证据（引用具体新闻），并给出你的预判。
+
+第三部分：值得深挖
+列出 2-3 篇值得精读的论文或报告（优先 arxiv），说明为什么重要、读者应关注哪个核心贡献。
+
+第四部分：一句话总结
+今日最关键的一个信号是什么（不超过60字）。
+
+HTML 格式模板：
+
+<h2>🤖 AI 深度简报 · {today}</h2>
+<p class="intro">覆盖 {len(articles)} 条资讯 · Robotics / Agent / 大模型</p>
+
+<div class="section-title">📌 重点新闻</div>
 
 <div class="item">
-  <h3><a href="URL">标题</a></h3>
-  <span class="meta">来源：XXX · 时间：XXX</span>
-  <p>中文摘要……</p>
+  <h3><a href="URL">标题（中文翻译）</a></h3>
+  <span class="meta">来源：XXX · XXX时间</span>
+  <p><strong>事件：</strong>……</p>
+  <p><strong>意义：</strong>……</p>
+  <p class="tag">关联：……</p>
 </div>
 
-（重复以上 item 块）
+<div class="section-title">📈 趋势分析</div>
+
+<div class="trend">
+  <h3>趋势名称</h3>
+  <p>……分析内容……</p>
+</div>
+
+<div class="section-title">🔬 值得深挖</div>
+
+<div class="deep-read">
+  <h3><a href="URL">论文/报告标题</a></h3>
+  <p>……为什么重要，核心贡献……</p>
+</div>
 
 <div class="closing">
-  <strong>今日一句话：</strong>……
+  <strong>今日信号：</strong>……
 </div>"""
 
     msg = client.messages.create(
-        model="claude-sonnet-4-6",
-        max_tokens=3000,
+        model="claude-opus-4-7",
+        max_tokens=6000,
         messages=[{"role": "user", "content": prompt}],
     )
     return msg.content[0].text
@@ -116,27 +144,39 @@ def summarize_with_claude(articles: list[dict]) -> str:
 
 EMAIL_CSS = """
 body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-       background: #f5f5f5; margin: 0; padding: 20px; color: #222; }
-.wrapper { max-width: 680px; margin: auto; background: #fff;
-           border-radius: 8px; overflow: hidden;
-           box-shadow: 0 2px 8px rgba(0,0,0,.08); }
-.header { background: #1a1a2e; color: #fff; padding: 24px 32px; }
-.header h1 { margin: 0; font-size: 20px; }
-.body { padding: 24px 32px; }
-h2 { color: #1a1a2e; margin-top: 0; }
-.intro { color: #555; font-size: 14px; margin-bottom: 24px; }
-.section-title { font-weight: 700; font-size: 13px; text-transform: uppercase;
-                 letter-spacing: .05em; color: #888; margin: 20px 0 12px; }
-.item { border-left: 3px solid #4f46e5; padding: 12px 16px;
-        margin-bottom: 16px; background: #fafafa; border-radius: 0 6px 6px 0; }
-.item h3 { margin: 0 0 4px; font-size: 16px; }
+       background: #f0f0f5; margin: 0; padding: 20px; color: #222; }
+.wrapper { max-width: 700px; margin: auto; background: #fff;
+           border-radius: 10px; overflow: hidden;
+           box-shadow: 0 2px 12px rgba(0,0,0,.10); }
+.header { background: #0f0f1a; color: #fff; padding: 28px 36px; }
+.header h1 { margin: 0; font-size: 22px; letter-spacing: -.3px; }
+.body { padding: 28px 36px; }
+h2 { color: #0f0f1a; margin-top: 0; font-size: 20px; }
+.intro { color: #666; font-size: 13px; margin-bottom: 28px; }
+.section-title { font-weight: 700; font-size: 11px; text-transform: uppercase;
+                 letter-spacing: .1em; color: #999; margin: 32px 0 14px;
+                 padding-bottom: 6px; border-bottom: 1px solid #eee; }
+.item { border-left: 3px solid #4f46e5; padding: 14px 18px;
+        margin-bottom: 18px; background: #fafafa; border-radius: 0 8px 8px 0; }
+.item h3 { margin: 0 0 4px; font-size: 15px; line-height: 1.4; }
 .item h3 a { color: #1a1a2e; text-decoration: none; }
 .item h3 a:hover { text-decoration: underline; }
-.meta { font-size: 12px; color: #999; }
-.item p { margin: 8px 0 0; font-size: 14px; line-height: 1.6; color: #444; }
-.closing { background: #f0f0ff; border-radius: 6px; padding: 14px 18px;
-           margin-top: 24px; font-size: 14px; }
-.footer { padding: 16px 32px; font-size: 12px; color: #aaa;
+.meta { font-size: 11px; color: #aaa; display: block; margin-bottom: 8px; }
+.item p { margin: 6px 0 0; font-size: 14px; line-height: 1.7; color: #444; }
+.item p.tag { font-size: 12px; color: #7c6fcd; margin-top: 8px; }
+.trend { border-left: 3px solid #059669; padding: 14px 18px;
+         margin-bottom: 18px; background: #f0fdf4; border-radius: 0 8px 8px 0; }
+.trend h3 { margin: 0 0 8px; font-size: 15px; color: #065f46; }
+.trend p { margin: 0; font-size: 14px; line-height: 1.7; color: #444; }
+.deep-read { border-left: 3px solid #d97706; padding: 14px 18px;
+             margin-bottom: 18px; background: #fffbeb; border-radius: 0 8px 8px 0; }
+.deep-read h3 { margin: 0 0 8px; font-size: 15px; }
+.deep-read h3 a { color: #92400e; text-decoration: none; }
+.deep-read p { margin: 0; font-size: 14px; line-height: 1.7; color: #444; }
+.closing { background: #1a1a2e; color: #e0e0ff; border-radius: 8px;
+           padding: 16px 20px; margin-top: 28px; font-size: 14px; line-height: 1.6; }
+.closing strong { color: #fff; }
+.footer { padding: 16px 36px; font-size: 12px; color: #bbb;
           border-top: 1px solid #eee; text-align: center; }
 """
 
