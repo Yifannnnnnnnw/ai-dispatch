@@ -2,7 +2,7 @@ name: AI Dispatch
 
 on:
   schedule:
-    - cron: '0 6 * * *'   # 06:00 UTC = 07:00 BST (夏令时) / 06:00 GMT (冬季差1小时)
+    - cron: '0 4 * * *'   # 04:00 UTC，预留 GitHub 延迟缓冲，目标到达时间 BST 07:00
   workflow_dispatch:        # 允许手动触发测试
 
 permissions:
