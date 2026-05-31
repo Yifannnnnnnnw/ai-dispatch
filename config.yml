@@ -143,4 +143,4 @@ digest:
   model: gemini-2.0-flash  # gemini: gemini-2.0-flash（免费）/ gemini-2.5-pro（更强）
                            # anthropic: claude-sonnet-4-6 / claude-opus-4-7（更强但更贵）
   max_tokens: 6000
-  output_language: 中文   # 摘要输出语言，可改为 English
+  output_language: English  # 摘要输出语言，可改为 中文
