@@ -126,6 +126,11 @@ arxiv_keywords:
   - foundation model
   - reasoning
 
+send_hour_utc: 4          # ← fork 用户改这里调整发送时间（UTC 小时，0-23）
+                          #   BST（夏令时 Apr-Oct，UTC+1）: 4 → 到达约 07:00 BST
+                          #   GMT（冬令时 Nov-Mar，UTC+0）: 4 → 到达约 07:00 GMT
+                          #   GitHub Actions 常延迟 1-3 小时，建议比目标时间提前 2 小时设置
+
 digest:
   news_hours: 24          # 新闻回溯窗口（小时）
   blog_days: 90           # 博客 RSS 回溯窗口（天）

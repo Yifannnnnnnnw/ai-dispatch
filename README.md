@@ -135,7 +135,7 @@ This validates all configuration and sends a test email to your inbox:
 ══════════════════════════════════════════════════════
 ```
 
-Once all green, AI Dispatch runs automatically every day at **06:00 UTC (07:00 BST)**.
+Once all green, AI Dispatch runs automatically every day. The default send time targets **07:00 BST / 07:00 GMT** — to change it, edit `send_hour_utc` in `config.yml` (no workflow file changes needed).
 
 ---
 
@@ -326,7 +326,7 @@ classics:
 ══════════════════════════════════════════════════════
 ```
 
-全部绿色后，每天 **06:00 UTC（英国夏令时 07:00 BST）** 自动运行。
+全部绿色后每天自动运行，默认目标到达时间为 **BST 07:00 / GMT 07:00**。如需调整，只需修改 `config.yml` 中的 `send_hour_utc`，无需改动 workflow 文件。
 
 ---
 

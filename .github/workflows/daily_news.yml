@@ -2,8 +2,8 @@ name: AI Dispatch
 
 on:
   schedule:
-    - cron: '0 4 * * *'   # 04:00 UTC，预留 GitHub 延迟缓冲，目标到达时间 BST 07:00
-  workflow_dispatch:        # 允许手动触发测试
+    - cron: '0 3-9 * * *'  # 每小时触发一次（UTC 03-09），实际发送时间由 config.yml send_hour_utc 控制
+  workflow_dispatch:        # 允许手动触发测试（忽略时间检查，直接发送）
 
 permissions:
   contents: write           # 允许 Action 把 sent_history.json commit 回仓库
@@ -16,15 +16,31 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
+      - name: Check send hour
+        id: timecheck
+        run: |
+          CONFIG_HOUR=$(grep 'send_hour_utc:' config.yml | awk '{print $2}')
+          CURRENT_HOUR=$(date -u +%-H)
+          echo "Scheduled hour (UTC): $CONFIG_HOUR  |  Current hour (UTC): $CURRENT_HOUR"
+          if [ "$CURRENT_HOUR" = "$CONFIG_HOUR" ]; then
+            echo "should_send=true" >> $GITHUB_OUTPUT
+          else
+            echo "should_send=false" >> $GITHUB_OUTPUT
+            echo "Not send hour, skipping."
+          fi
+
       - name: Set up Python
+        if: steps.timecheck.outputs.should_send == 'true' || github.event_name == 'workflow_dispatch'
         uses: actions/setup-python@v5
         with:
           python-version: '3.11'
 
       - name: Install dependencies
+        if: steps.timecheck.outputs.should_send == 'true' || github.event_name == 'workflow_dispatch'
         run: pip install -r requirements.txt
 
       - name: Fetch and send AI news
+        if: steps.timecheck.outputs.should_send == 'true' || github.event_name == 'workflow_dispatch'
         env:
           ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
           GMAIL_USER:        ${{ secrets.GMAIL_USER }}
@@ -33,6 +49,7 @@ jobs:
         run: python fetch_news.py
 
       - name: Commit updated sent history
+        if: steps.timecheck.outputs.should_send == 'true' || github.event_name == 'workflow_dispatch'
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
