@@ -126,7 +126,7 @@ arxiv_keywords:
   - foundation model
   - reasoning
 
-provider: gemini           # ← 选择 LLM 提供商
+provider: anthropic        # ← 选择 LLM 提供商
                           #   gemini    — 免费，申请 key: https://aistudio.google.com/apikey
                           #   anthropic — 付费，申请 key: https://console.anthropic.com
 
@@ -140,7 +140,7 @@ digest:
   blog_days: 90           # 博客 RSS 回溯窗口（天）
   news_per_source: 50     # 每个新闻源最多抓取条数
   blog_per_source: 20     # 每个博客最多抓取条数
-  model: gemini-2.0-flash  # gemini: gemini-2.0-flash（免费）/ gemini-2.5-pro（更强）
+  model: claude-sonnet-4-6  # gemini: gemini-2.0-flash（免费）/ gemini-2.5-pro（更强）
                            # anthropic: claude-sonnet-4-6 / claude-opus-4-7（更强但更贵）
   max_tokens: 6000
   output_language: English  # 摘要输出语言，可改为 中文
